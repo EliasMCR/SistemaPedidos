@@ -8,29 +8,32 @@
     <!-- Jquery -->
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"
         integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-
+    <!-- JqueryValidation -->
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.19.5/jquery.validate.min.js"></script>
     <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/login.css">
     <title>Login</title>
 </head>
+
+<body>
     <section>
         <div>
             <h1>Faça seu login</h1>
         </div>
-        <form> <!--Vai ser feito por javaScript a requisição-->
+        <form id="myForm"> <!--Vai ser feito por javaScript a requisição-->
             <div>
-                <input type="email" name="email" id="iemail" placeholder="Email" required>
+                <input type="email" name="email" id="iemail" placeholder="Email"  minlength="10">
             </div>
             <div>
-                <input type="password" name="senha" id="isenha" placeholder="Senha" required>
+                <input type="password" name="senha" id="isenha" placeholder="Senha" required minlength="6">
             </div>
             <div>
-                <button type="submit" class="no-click">Login</button>
-            </div>        
+                <button type="submit">Login</button>
+            </div>
         </form>
     </section>
-<body>
 
+    <script src="js/loginValidation.js"></script>
 </body>
 
 </html>

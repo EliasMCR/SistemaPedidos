@@ -24,9 +24,3 @@ h1{
     font-weight: 700;
 }
 
-.no-click {
-    pointer-events: none; /* Desativa cliques */
-    cursor: not-allowed;  /* Mostra o cursor de "proibido" */
-    opacity: 0.6;         /* Visual de desativado */
-  }
-
