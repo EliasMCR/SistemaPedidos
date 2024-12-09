@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+
+/* váriavies */
+:root {
+    --box-shadow: 2px 2px 0px 0px rgba(0, 0, 0, 0.1);
+    --yellow-1: rgba(242, 202, 4, 1);
+    --yellow-2: rgba(89, 77, 19, 1);
+    --yellow-3: rgba(140, 123, 37, 1);
+    --yellow-4: rgba(242, 182, 4, 1);
+    --yellow-5: rgba(242, 159, 4, 1);
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 18px;
+    font-family: "Inter", sans-serif;
+}
+
+button{
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: var(--box-shadow);
+    background-color: var(--yellow-5);
+    color: #fff;
+}
+
+button:hover{
+    background-color: var(--yellow-4);
+}
+
+input{
+    border: none;
+    padding: 5px;
+    border-radius: 5px;
+    box-shadow: var(--box-shadow);
+}
+
+body{
+    background-color: var(--yellow-1);
+}

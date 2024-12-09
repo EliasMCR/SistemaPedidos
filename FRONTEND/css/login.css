@@ -1,0 +1,32 @@
+section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+section div{
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+}
+
+section form{
+    padding: 40px;
+    border-radius: 10px;
+    background-color: var(--yellow-3);
+}
+
+h1{
+    color: white;
+    font-size: 40px;
+    font-weight: 700;
+}
+
+.no-click {
+    pointer-events: none; /* Desativa cliques */
+    cursor: not-allowed;  /* Mostra o cursor de "proibido" */
+    opacity: 0.6;         /* Visual de desativado */
+  }
+
