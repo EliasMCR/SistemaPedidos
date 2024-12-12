@@ -46,7 +46,7 @@ $(document).ready(function () {
 
         // Exibindo o botão do menu
         $("#btn-menu").css({
-            'display': 'flex'
+            'display': 'block'
         });
 
         // Ocultando o botão de fechar
