@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/receita.css">
     <!-- Jquery -->
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"
         integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
@@ -17,7 +18,6 @@
 
 <body>
     <header>
-
     </header>
     <section class="d-flex" id="conteudo">
         <nav id="container-nav">
@@ -49,8 +49,89 @@
             </div>
         </nav>
 
-        <section>
+        <section id="container-conteudo">
             <h1>Use o menu ao lado para fazer uma ação</h1>
+
+            <div id="container-receita">
+                <div id="selecaoreceita">
+                    <label for="escolha">Escolha o tipo de receita:</label>
+                    <select name="escolha" id="escolha">
+                        <option value="none">...</option>
+                        <option value="visaoSimples">Visão Simples</option>
+                        <option value="multifocal">Multifocal</option>
+                        <option value="bifocal">Bifocal</option>
+                    </select>
+                </div>
+                <form method="post" id="form-receita">
+                    <h2>Receita</h2>
+
+                    <!-- Receita OD -->
+                    <div class="container-olhos">
+                        <p>OD</p>
+                        <div id="container-receita-od">
+                            <div class="d-flex">
+                                <div>
+                                    <label for="esfericoOD">Esférico:</label>
+                                    <input type="number" name="esfericoOD" id="esfericoOD">
+                                </div>
+                                <div>
+                                    <label for="cilindroOD">Cilindro:</label>
+                                    <input type="number" name="cilindroOD" id="cilindroOD">
+                                </div>
+                                <div>
+                                    <label for="eixoOD">Eixo:</label>
+                                    <input type="number" name="eixoOD" id="eixoOD">
+                                </div>
+                                <div>
+                                    <label for="adicaoOD">Adição:</label>
+                                    <input type="number" name="adicaoOD" id="iadicaoOD">
+                                </div>
+                            </div>
+                            <div>
+                                <hr>
+                                <p>Medidas</p>
+                                <label for="dnpOD">Dnp:</label>
+                                <input type="number" name="dnpOD" id="dnpOD">
+                                <label for="alturaOD">Altura:</label>
+                                <input type="number" name="alturaOD" id="alturaOD">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Receita OE -->
+                    <div class="container-olhos">
+                        <p>OE</p>
+                        <div id="container-receita-oe">
+                            <div class="d-flex">
+                                <div>
+                                    <label for="esfericoOE">Esférico:</label>
+                                    <input type="number" name="esfericoOE" id="iesfericoOE">
+                                </div>
+                                <div>
+                                    <label for="cilindroOE">Cilindro:</label>
+                                    <input type="number" name="cilindroOE" id="icilindroOE">
+                                </div>
+                                <div>
+                                    <label for="eixoOE">Eixo:</label>
+                                    <input type="number" name="eixoOE" id="ieixoOE">
+                                </div>
+                                <div>
+                                    <label for="adicaoOE">Adição:</label>
+                                    <input type="number" name="adicaoOE" id="iadicaoOE">
+                                </div>
+                            </div>
+                            <div>
+                                <hr>
+                                <p>Medidas</p>
+                                <label for="dnpOE">Dnp:</label>
+                                <input type="number" name="dnpOE" id="dnpOE">
+                                <label for="alturaOE">Altura:</label>
+                                <input type="number" name="alturaOE" id="alturaOE">
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
         </section>
     </section>
     <footer>
@@ -58,6 +139,7 @@
     </footer>
 
     <script src="js/menu.js"></script>
+    <script src="js/receita.js"></script>
 </body>
 
 </html>

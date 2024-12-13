@@ -1,0 +1,37 @@
+#container-receita {
+    background-color: var(--yellow-1);
+    border-radius: 5px;
+}
+
+#container-receita #selecaoreceita{
+    padding: 20px;
+}
+
+#container-receita input {
+    max-width: 70px;
+    margin: 10px;
+}
+
+#container-receita form {
+    display: none;
+    padding: 40px;
+    box-shadow: var(--box-shadow);
+    background-color: var(--yellow-5);
+    color:  white;
+}
+
+#container-receita-od {
+    border: 2px groove var(--yellow-2);
+    box-shadow: var(--box-shadow-menu);
+    padding: 20px;
+}
+
+#container-receita-oe {
+    border: 2px groove var(--yellow-2);
+    box-shadow: var(--box-shadow-menu);
+    padding: 20px;
+}
+
+.container-olhos{
+    padding: 10px;
+}

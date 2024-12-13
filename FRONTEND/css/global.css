@@ -4,6 +4,7 @@
 /* váriavies */
 :root {
     --box-shadow: 2px 2px 0px 0px rgba(0, 0, 0, 0.1);
+    --box-shadow-menu: 2px 2px 5px 0px rgba(0, 0, 0, 0.1);
     --yellow-1: rgba(242, 202, 4, 1);
     --yellow-2: rgba(89, 77, 19, 1);
     --yellow-3: rgba(140, 123, 37, 1);
@@ -34,6 +35,10 @@ a {
 
 .flex-column {
     flex-direction: column;
+}
+
+.border{
+    border: 1px solid black;
 }
 
 .btn {
