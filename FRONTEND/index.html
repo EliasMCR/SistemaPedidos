@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/receita.css">
+    <link rel="stylesheet" href="css/pesquisa.css">
     <!-- Jquery -->
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"
         integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
@@ -27,22 +28,23 @@
 
             <div id="container-items">
                 <div>
-                    <i class="bi bi-plus-circle"></i>
+                    <i id="icon-plus" class="bi bi-plus-circle"></i>
                     <button id="create-order" class="nav-btn-items">Criar pedido</button>
                 </div>
                 <div>
-                    <i class="bi bi-search"></i>
+                    <i id="icon-search" class="bi bi-search"></i>
                     <button id="check-order" class="nav-btn-items">Verificar pedido</button>
                 </div>
                 <div>
-                    <i class="bi bi-card-checklist"></i>
+                    <i id="icon-checklist" class="bi bi-card-checklist"></i>
                     <button id="list-orders" class="nav-btn-items">Listar Pedidos</button>
                 </div>
                 <div>
-                    <i class="bi bi-x-circle"></i>
+                    <i id="icon-x" class="bi bi-x-circle"></i>
                     <button id="cancel-order" class="nav-btn-items">Cancelar Pedido</button>
                 </div>
             </div>
+
 
             <div id="container-nav-end">
                 <button><i class="bi bi-box-arrow-left" id="icon-nav-end"></i></button>
@@ -50,7 +52,7 @@
         </nav>
 
         <section id="container-conteudo">
-            <h1>Use o menu ao lado para fazer uma ação</h1>
+            <h1 id="tituloPrimeiraPag">Use o menu ao lado para fazer uma ação</h1>
 
             <div id="container-receita">
                 <div id="selecaoreceita">
@@ -130,8 +132,77 @@
                             </div>
                         </div>
                     </div>
+                    <!-- dados armação -->
+                    <div id="container-3">
+                        <div id="dadosArmacao">
+                            <div>
+                                <label for="vertical">Vertical:</label>
+                                <input type="number" name="vertical" id="ivertical" required>
+                            </div>
+                            <div>
+                                <label for="diagonalMaior">Diagonal maior:</label>
+                                <input type="number" name="diagonalMaior" id="idiagonalMaior" readonly>
+                            </div>
+                            <div>
+                                <label for="horizontal">Horizontal:</label>
+                                <input type="number" name="horizontal" id="ihorizontal" required>
+                            </div>
+                            <div>
+                                <label for="ponte">Ponte:</label>
+                                <input type="number" name="ponte" id="iponte" required>
+                            </div>
+                            <div>
+                                <label for="codigoArmacao">Código da Armação:</label>
+                                <input type="text" name="codigoArmacao" id="icodigoArmacao" required>
+                            </div>
+                            <div>
+                                <label for="corArmacao">Cor da Armação:</label>
+                                <input type="text" name="corArmacao" id="icorArmacao" required>
+                            </div>
+                        </div>
+                        <!--  -->
+                        <div id="container-escolha-lente">
+                            <div>
+                                <label for="escolha">Escolha a lente:</label>
+                                <select name="escolhaLente" id="escolhaLente" required>
+                                    <option value="none">...</option>
+                                    <option value="cr">cr</option>
+                                    <option value="poly">Poly</option>
+                                    <option value="mhi">MHI</option>
+                                </select>
+                            </div>
+
+                            <button type="submit" class="btn">Fazer Pedido</button>
+                        </div>
+                    </div>
+                </form>
+            </div><!--final container receita-->
+            <!-- container pesquisa -->
+            <div id="container-pesquisa">
+                <form method="post">
+                    <label for="pesquisa">Insira o ID do pedido:</label>
+                    <input type="text" name="pesquisa" id="ipesquisa" required>
+                    <button type="submit"  class="btn">Pesquisar</button>
                 </form>
             </div>
+            <!-- container listagem -->
+             <div id="container-listagem">
+                <table id="lista-pedidos">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Data Pedido</th>
+                            <th>Previsão</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Aqui as linhas da tabela serão inseridas dinamicamente -->
+                    </tbody>
+                </table>
+                
+             </div>
+
         </section>
     </section>
     <footer>

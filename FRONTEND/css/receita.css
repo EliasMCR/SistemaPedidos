@@ -1,4 +1,5 @@
 #container-receita {
+    display: none;
     background-color: var(--yellow-1);
     border-radius: 5px;
 }
@@ -21,17 +22,46 @@
 }
 
 #container-receita-od {
-    border: 2px groove var(--yellow-2);
+    border: 1px dashed var(--color-grey-ultralight);
     box-shadow: var(--box-shadow-menu);
     padding: 20px;
 }
 
 #container-receita-oe {
-    border: 2px groove var(--yellow-2);
+    border: 1px dashed var(--color-grey-ultralight);
     box-shadow: var(--box-shadow-menu);
     padding: 20px;
 }
 
 .container-olhos{
     padding: 10px;
+}
+                        /* estiliando dados armação */
+#container-3{
+    display: flex;
+    justify-content: space-between;
+}
+
+#dadosArmacao{
+    padding: 10px;
+    border: 1px dashed var(--color-grey-ultralight);
+}
+
+#container-escolha-lente{
+    padding: 10px;
+    border: 1px dashed var(--color-grey-ultralight);
+}
+
+#container-escolha-lente select{
+    min-width: 200px;
+}
+
+#container-escolha-lente{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#container-escolha-lente button{
+    background-color: green;
 }

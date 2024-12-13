@@ -19,3 +19,28 @@ $(document).ready(function () {
         }
     });
 });
+
+$(document).ready(function() {
+    $('#form-submit').on('click', function(e) {
+        e.preventDefault();
+
+        // Verificando se os campos estão preenchidos
+        var vertical = $('#ivertical').val();
+        var diagonalMaior = $('#idiagonalMaior').val();
+        var horizontal = $('#ihorizontal').val();
+        var ponte = $('#iponte').val();
+        var codigoArmacao = $('#icodigoArmacao').val();
+        var corArmacao = $('#icorArmacao').val();
+
+        // Condição de verificação de campos
+        if (!vertical || !diagonalMaior || !horizontal || !ponte || !codigoArmacao || !corArmacao) {
+            // Se algum campo não estiver preenchido, mostra a tela3
+            $('#tela3').css('display', 'block');
+        } else {
+            // Caso todos os campos estejam preenchidos
+            alert('Todos os campos estão preenchidos!');
+            // Aqui você pode adicionar o envio do formulário ou outra ação desejada.
+        }
+    });
+});
+

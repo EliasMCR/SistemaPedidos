@@ -55,3 +55,53 @@ $(document).ready(function () {
         });
     });
 });
+// click botao criar pedido
+$(document).ready(function () {
+    // Função para resetar a cor de todos os ícones
+    function resetIconColor() {
+        $("#icon-plus, #icon-search, #icon-checklist, #icon-x").css('color', ''); // Reseta a cor
+    }
+
+    function resetContainer() {
+        $("#container-receita, #container-pesquisa, #container-listagem").css('display', 'none');
+    }
+
+    // Evento de clique no ícone e no botão "Criar Pedido"
+    $("#create-order, #icon-plus").click(function () {
+        resetIconColor(); // Reseta a cor de todos os ícones
+        resetContainer(); //reseta os container
+        $("#container-receita").css('display', 'block');
+        $("#icon-plus").css('color', 'yellow'); // Altera a cor do ícone clicado
+        $("#tituloPrimeiraPag").css('display', 'none');
+    });
+
+    // Evento de clique no ícone e no botão "Verificar Pedido"
+    $("#check-order, #icon-search").click(function () {
+        resetIconColor(); // Reseta a cor de todos os ícones
+        resetContainer(); //reseta os container
+        $("#container-pesquisa").css('display', 'block');
+        $("#icon-search").css('color', 'yellow'); // Altera a cor do ícone clicado
+        $("#tituloPrimeiraPag").css('display', 'none');
+    });
+
+    // Evento de clique no ícone e no botão "Listar Pedidos"
+    $("#list-orders, #icon-checklist").click(function () {
+        resetIconColor(); // Reseta a cor de todos os ícones
+        resetContainer(); //reseta os container
+        $("#container-listagem").css('display', 'block');
+        $("#icon-checklist").css('color', 'yellow'); // Altera a cor do ícone clicado
+        $("#tituloPrimeiraPag").css('display', 'none');
+    });
+
+    // Evento de clique no ícone e no botão "Cancelar Pedido"
+    $("#cancel-order, #icon-x").click(function () {
+        resetIconColor(); // Reseta a cor de todos os ícones
+        resetContainer(); //reseta os container
+        $("#container-cancelar").css('display', 'block');
+        $("#icon-x").css('color', 'yellow'); // Altera a cor do ícone clicado
+        $("#tituloPrimeiraPag").css('display', 'none');
+    });
+});
+
+
+
