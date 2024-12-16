@@ -65,3 +65,13 @@
 #container-escolha-lente button{
     background-color: green;
 }
+                                    /* listagem de pedidos */
+
+#container-listagem{
+    border: 1px solid black;
+}
+
+#lista-pedidos th{
+    text-align: left;
+    padding: 20px;
+}
