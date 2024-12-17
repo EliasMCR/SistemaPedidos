@@ -55,6 +55,7 @@ $(document).ready(function () {
         });
     });
 });
+
 // click botao criar pedido
 $(document).ready(function () {
     // Função para resetar a cor de todos os ícones
@@ -63,7 +64,7 @@ $(document).ready(function () {
     }
 
     function resetContainer() {
-        $("#container-receita, #container-pesquisa, #container-listagem").css('display', 'none');
+        $("#container-receita, #container-pesquisa, #container-listagem, #container-listagem, #container-cancelar").css('display', 'none');
     }
 
     // Evento de clique no ícone e no botão "Criar Pedido"

@@ -93,7 +93,7 @@
                                 <hr>
                                 <p>Medidas</p>
                                 <label for="dnpOD">Dnp:</label>
-                                <input type="number" name="dnpOD" id="dnpOD">
+                                <input type="number" name="dnpOD" maxlength="40" id="dnpOD">
                                 <label for="alturaOD">Altura:</label>
                                 <input type="number" name="alturaOD" id="alturaOD">
                             </div>
@@ -179,12 +179,12 @@
             </div><!--final container receita-->
             <!-- container pesquisa -->
             <div id="container-pesquisa">
-                <form method="post">
+                <form method="post" id="form-pesquisar">
                     <label for="pesquisa">Insira o ID do pedido:</label>
                     <input type="text" name="pesquisa" id="ipesquisa" required>
                     <button type="submit" class="btn">Pesquisar</button>
                 </form>
-            </div>
+            </div><!--final container pesquisa-->
             <!-- container listagem -->
             <div id="container-listagem">
                 <table id="lista-pedidos">
@@ -200,9 +200,15 @@
                         <!-- Aqui as linhas da tabela serão inseridas dinamicamente -->
                     </tbody>
                 </table>
+            </div><!--final container listagem-->
 
+            <div id="container-cancelar">
+                <form method="post" id="form-apagar">
+                    <label for="apagar">Insira o ID do pedido:</label>
+                    <input type="text" name="apagar" id="iapagar" required>
+                    <button type="submit" class="btn">Buscar</button>
+                </form>
             </div>
-
         </section>
     </section>
     <footer>

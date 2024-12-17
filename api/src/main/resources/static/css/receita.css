@@ -68,10 +68,16 @@
                                     /* listagem de pedidos */
 
 #container-listagem{
-    border: 1px solid black;
+    /* border: 1px solid black; */
+    display: none;
 }
 
 #lista-pedidos th{
-    text-align: left;
     padding: 20px;
+    background-color: var(--yellow-5);
 }
+                                        /* apagar pedido */
+
+#container-cancelar{
+    display: none;
+}                                       
