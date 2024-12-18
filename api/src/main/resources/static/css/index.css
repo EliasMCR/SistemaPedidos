@@ -69,6 +69,10 @@ nav div{
     margin: 0;
 }
 
+#container-escolha-lente{
+    display: none;
+}
+
                                 /* estilizando botoes do menu */
 
 #container-btn-menu i{

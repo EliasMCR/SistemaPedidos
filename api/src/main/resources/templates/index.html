@@ -141,7 +141,7 @@
                             </div>
                             <div>
                                 <label for="diagonalMaior">Diagonal maior:</label>
-                                <input type="number" name="diagonalMaior" id="idiagonalMaior" readonly>
+                                <input type="number" name="diagonalMaior" id="idiagonalMaior">
                             </div>
                             <div>
                                 <label for="horizontal">Horizontal:</label>
@@ -163,13 +163,19 @@
                         <!--  -->
                         <div id="container-escolha-lente">
                             <div>
-                                <label for="escolha">Escolha a lente:</label>
-                                <select name="escolhaLente" id="escolhaLente" required>
-                                    <option value="none">...</option>
-                                    <option value="cr">cr</option>
-                                    <option value="poly">Poly</option>
-                                    <option value="mhi">MHI</option>
+                                <label for="escolhaLenteOD">Escolha a lente OD:</label>
+                                <select name="escolhaLenteOD" id="escolhaLenteOD" required>
+                                    
                                 </select>
+                            </div>
+                            <div>
+                                <label for="escolhaLenteOE">Escolha a lente OE:</label>
+                                <select name="escolhaLenteOE" id="escolhaLenteOE" required>
+                                
+                                </select>
+                            </div>
+                            <div>
+                                <h5 id="diametroLente"></h5>
                             </div>
 
                             <button type="submit" class="btn">Fazer Pedido</button>
