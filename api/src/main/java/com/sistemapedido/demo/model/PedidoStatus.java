@@ -1,4 +1,4 @@
-package com.sistemapedido.model;
+package com.sistemapedido.demo.model;
 
 public enum PedidoStatus {
 	AGUARDANDO_APROVACAO,

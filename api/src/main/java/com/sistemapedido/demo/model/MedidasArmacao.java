@@ -1,4 +1,4 @@
-package com.sistemapedido.model;
+package com.sistemapedido.demo.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

@@ -1,4 +1,6 @@
-package com.sistemapedido.model;
+package com.sistemapedido.demo.model;
+
+import java.math.BigDecimal;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -6,21 +8,22 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import lombok.Data;
 
 @Data
 @Entity
-public class Receita {
+@Table(name = "lente")
+public class Lente {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	@Enumerated(EnumType.STRING)
-	private TipoReceita tipoReceita;
-	private Float esfericoOD;
-	private Float esfericoOE;
-	private Float cilindroOD;
-	private Float cilindroOE;
-	private Float adicaoOD;
-	private Float adicaoOE;
+	private Material material;
+	private Float diametro;
+	private Float indiceRefracao;
+	private BigDecimal preco;
+	private Float quantidade;
+	private Float base;
 }

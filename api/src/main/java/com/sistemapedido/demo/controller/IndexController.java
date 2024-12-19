@@ -1,4 +1,4 @@
-package com.sistemapedido.controller;
+package com.sistemapedido.demo.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

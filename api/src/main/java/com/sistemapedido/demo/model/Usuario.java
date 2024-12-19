@@ -1,4 +1,4 @@
-package com.sistemapedido.model;
+package com.sistemapedido.demo.model;
 
 import java.util.HashSet;
 import java.util.Set;

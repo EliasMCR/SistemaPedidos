@@ -80,17 +80,24 @@ $(document).ready(function () {
 $(document).ready(function () {
     // Função para carregar as lentes
     function carregarLentes(diametro) {
+        if (isNaN(diametro) || diametro <= 0) {
+            console.error("Diâmetro inválido: ", diametro);
+            alert("Erro: diâmetro inválido. Verifique os valores inseridos.");
+            return;
+        }
+
+        console.log("Enviando requisição com diâmetro: ", diametro);
+
         $.ajax({
-            url: '/lente/listar/',  // Endpoint que retorna as lentes
+            url: `http://localhost:8080/lente/listar/${diametro}`,  // Inclui o diâmetro na URL
             method: 'GET',
             dataType: 'json',
-            data: {
-                diametro: diametro  // Passa o argumento para o servidor
-            },
             success: function (data) {
+                console.log("Lentes recebidas: ", data);
+
                 // Preencher o select para OD
                 var selectOD = $('#escolhaLenteOD');
-                selectOD.empty();  // Limpar o select antes de adicionar novos itens
+                selectOD.empty();
                 selectOD.append('<option value="">Selecione a lente OD</option>');
 
                 data.forEach(function (lente) {
@@ -99,59 +106,58 @@ $(document).ready(function () {
 
                 // Preencher o select para OE
                 var selectOE = $('#escolhaLenteOE');
-                selectOE.empty();  // Limpar o select antes de adicionar novos itens
+                selectOE.empty();
                 selectOE.append('<option value="">Selecione a lente OE</option>');
 
                 data.forEach(function (lente) {
                     selectOE.append('<option value="' + lente.id + '">' + lente.material + ' - ' + lente.diametro + '</option>');
                 });
             },
-            error: function () {
-                alert('Erro ao carregar as lentes.');
+            error: function (xhr, status, error) {
+                console.error("Erro ao carregar as lentes:", status, error);
+                alert("Erro ao carregar as lentes. Tente novamente mais tarde.");
             }
         });
+
     }
 
     // Função para calcular o diâmetro
     function calcDiametro() {
-        const ponte = parseFloat($('#iponte').val()) || 0; // Valor do campo 'ponte'
-        const horizontal = parseFloat($('#ihorizontal').val()) || 0; // Valor do campo 'horizontal'
-        const dnpOD = parseFloat($('#dnpOD').val()) || 0; // Valor do campo 'dnpOD'
-        const dnpOE = parseFloat($('#dnpOE').val()) || 0; // Valor do campo 'dnpOE'
-        const diagonal = parseFloat($('#idiagonalMaior').val()) || 0; // Valor do campo 'diagonalMaior'
+        const ponte = parseFloat($('#iponte').val()) || 0;
+        const horizontal = parseFloat($('#ihorizontal').val()) || 0;
+        const dnpOD = parseFloat($('#dnpOD').val()) || 0;
+        const dnpOE = parseFloat($('#dnpOE').val()) || 0;
+        const diagonal = parseFloat($('#idiagonalMaior').val()) || 0;
 
-        // Calcula o resultado de acordo com a fórmula
-        return ponte + horizontal - (dnpOD + dnpOE) + diagonal;
+        const diametro = ponte + horizontal - (dnpOD + dnpOE) + diagonal;
+        return diametro > 0 ? diametro : 0; // Garante que o valor seja positivo
     }
 
     // Função para verificar se todos os campos estão preenchidos
     function verificarCamposPreenchidos() {
         let preenchido = true;
 
-        // Seleciona todos os inputs dentro do formulário
         $('#form-receita input').not('#iadicaoOD, #iadicaoOE').each(function () {
             if ($(this).val() === "") {
                 preenchido = false;
             }
         });
 
-        // Libera o container apenas se todos os campos forem preenchidos
         if (preenchido) {
-            $('#container-escolha-lente').show();  // Torna o container visível
-            const diametroCalculado = calcDiametro(); // Calcula o diâmetro
-            $('#diametroLente').text('Diâmetro: ' + diametroCalculado.toFixed(2)); // Exibe o resultado
-            carregarLentes(diametroCalculado); // Passa o valor calculado para carregar as lentes
+            $('#container-escolha-lente').show();
+            const diametroCalculado = calcDiametro();
+            $('#diametroLente').text('Diâmetro: ' + diametroCalculado.toFixed(2));
+            carregarLentes(diametroCalculado); // Passa o valor calculado
         } else {
-            $('#container-escolha-lente').hide();  // Esconde o container
-            $('#diametroLente').text(''); // Limpa o texto do diâmetro
+            $('#container-escolha-lente').hide();
+            $('#diametroLente').text('');
         }
     }
 
-    // Chama a função sempre que um campo é alterado
+    // Eventos
     $('#form-receita input').on('input', function () {
         verificarCamposPreenchidos();
     });
 
-    // Inicializa a verificação ao carregar a página
     verificarCamposPreenchidos();
 });

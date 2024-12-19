@@ -1,4 +1,4 @@
-package com.sistemapedido.model;
+package com.sistemapedido.demo.model;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
