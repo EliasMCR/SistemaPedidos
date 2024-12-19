@@ -47,16 +47,17 @@ $(document).ready(function () {
 
 //função para converter os números do cilindro em potências negativas automaticamente
 $(document).ready(function () {
-    $("#cilindroOD, #cilindroOE").on('input', function () {
+    $("#cilindroOD, #icilindroOE").on('input', function () {
         let valor = $(this).val();
         if (valor && valor > 0) {
             $(this).val(-Math.abs(valor)); // Torna o valor negativo
         }
     });
 });
+
 //verificar eixo
 $(document).ready(function () {
-    $('#eixoOD, eixoOE').on('input', function () {
+    $('#eixoOD, #eixoOE').on('input', function () {
         let valor = $(this).val();
 
         // Remove números decimais e caracteres inválidos
@@ -161,3 +162,44 @@ $(document).ready(function () {
 
     verificarCamposPreenchidos();
 });
+
+//salvando pedido
+document.getElementById("form-receita").addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const data = {
+        esfericoOD: parseFloat(document.getElementById("esfericoOD").value),
+        cilindroOD: parseFloat(document.getElementById("cilindroOD").value),
+        eixoOD: parseInt(document.getElementById("eixoOD").value),
+        adicaoOD: document.getElementById("iadicaoOD").value ? parseFloat(document.getElementById("iadicaoOD").value) : null,
+        dnpOD: parseFloat(document.getElementById("dnpOD").value),
+        alturaOD: parseFloat(document.getElementById("alturaOD").value),
+        esfericoOE: parseFloat(document.getElementById("iesfericoOE").value),
+        cilindroOE: parseFloat(document.getElementById("icilindroOE").value),
+        eixoOE: parseInt(document.getElementById("ieixoOE").value),
+        adicaoOE: document.getElementById("iadicaoOE").value ? parseFloat(document.getElementById("iadicaoOE").value) : null,
+        dnpOE: parseFloat(document.getElementById("dnpOE").value),
+        alturaOE: parseFloat(document.getElementById("alturaOE").value),
+        vertical: parseFloat(document.getElementById("ivertical").value),
+        diagonalMaior: parseFloat(document.getElementById("idiagonalMaior").value),
+        horizontal: parseFloat(document.getElementById("ihorizontal").value),
+        ponte: parseFloat(document.getElementById("iponte").value),
+        codigoArmacao: document.getElementById("icodigoArmacao").value,
+        corArmacao: document.getElementById("icorArmacao").value,
+        escolhaLenteOD: parseInt(document.getElementById("escolhaLenteOD").value),
+        escolhaLenteOE: parseInt(document.getElementById("escolhaLenteOE").value),
+    };
+
+    const response = await fetch("/pedido", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+    });
+
+    if (response.ok) {
+        alert("Pedido criado com sucesso!");
+    } else {
+        alert("Erro ao criar pedido.");
+    }
+});
+

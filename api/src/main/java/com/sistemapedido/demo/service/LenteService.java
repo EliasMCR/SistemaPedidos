@@ -17,4 +17,13 @@ public class LenteService {
 	public List<Lente> listarLenteDiametro(Float diametro){
 		return lenteRepository.findByDiametroGreaterThanEqual(diametro);
 	}
+	
+	public Lente salvar(Lente lente) {
+		lente.setId(null);
+		return lenteRepository.save(lente);
+	}
+	
+	public Lente buscarId(Long id) {
+		return lenteRepository.findById(id).orElse(null);
+	}
 }

@@ -10,11 +10,27 @@ import com.sistemapedido.demo.repository.PedidoRepository;
 
 @Service
 public class PedidoService {
-	
+
 	@Autowired
 	private PedidoRepository pedidoRepository;
-	
-	public List<Pedido> listarPedido(Long id){
-		return pedidoRepository.findByUsuarioId(id);
+
+	public List<Pedido> listarPedido() {
+		return pedidoRepository.findAll();
+	}
+
+	public Pedido salvar(Pedido pedido) {
+		return pedidoRepository.save(pedido);
+	}
+
+	public Pedido pesquisarId(Long id) {
+		return pedidoRepository.findById(id).orElseThrow(null);
+	}
+
+	public boolean apagarPorId(Long id) {
+		if (pedidoRepository.existsById(id)) {
+			pedidoRepository.deleteById(id);
+			return true;
+		}
+		return false;
 	}
 }

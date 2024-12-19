@@ -58,6 +58,34 @@ $(document).ready(function () {
 
 // click botao criar pedido
 $(document).ready(function () {
+    function carregarPedidos() {
+        $.ajax({
+            url: "/pedido/listar", // URL do endpoint para listar pedidos
+            method: "GET",
+            dataType: "json",
+            success: function (pedidos) {
+                // Limpar o tbody da tabela antes de preencher
+                $("#lista-pedidos tbody").empty();
+
+                // Iterar sobre os pedidos recebidos
+                pedidos.forEach(pedido => {
+                    const row = `
+                        <tr>
+                            <td>${pedido.id}</td>
+                            <td>${pedido.dataCriacao}</td>
+                            <td>${pedido.dataPrevisaoEntrega}</td>
+                            <td>${pedido.status}</td>
+                        </tr>
+                    `;
+                    $("#lista-pedidos tbody").append(row);
+                });
+            },
+            error: function (error) {
+                console.error("Erro ao carregar pedidos:", error);
+                alert("Erro ao carregar a lista de pedidos.");
+            }
+        });
+    }
     // Função para resetar a cor de todos os ícones
     function resetIconColor() {
         $("#icon-plus, #icon-search, #icon-checklist, #icon-x").css('color', ''); // Reseta a cor
@@ -92,6 +120,7 @@ $(document).ready(function () {
         $("#container-listagem").css('display', 'block');
         $("#icon-checklist").css('color', 'yellow'); // Altera a cor do ícone clicado
         $("#tituloPrimeiraPag").css('display', 'none');
+        carregarPedidos();
     });
 
     // Evento de clique no ícone e no botão "Cancelar Pedido"

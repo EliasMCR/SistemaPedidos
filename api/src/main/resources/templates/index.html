@@ -64,7 +64,7 @@
                         <option value="bifocal">Bifocal</option>
                     </select>
                 </div>
-                <form method="post" id="form-receita">
+                <form id="form-receita">
                     <h2>Receita</h2>
 
                     <!-- Receita OD -->
@@ -190,6 +190,19 @@
                     <input type="text" name="pesquisa" id="ipesquisa" required>
                     <button type="submit" class="btn">Pesquisar</button>
                 </form>
+                <table id="pesquisa-pedidos">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Data Pedido</th>
+                            <th>Previsão</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Aqui as linhas da tabela serão inseridas dinamicamente -->
+                    </tbody>
+                </table>
             </div><!--final container pesquisa-->
             <!-- container listagem -->
             <div id="container-listagem">
@@ -223,6 +236,7 @@
 
     <script th:src="@{js/menu.js}"></script>
     <script th:src="@{js/receita.js}"></script>
+    <script th:src="@{js/pesquisarExcluir.js}"></script>
 </body>
 
 </html>

@@ -1,5 +1,7 @@
 package com.sistemapedido.demo.model;
 
+import java.math.BigDecimal;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -15,10 +17,10 @@ public class MedidasArmacao {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	private Float vertical;
-	private Float horizontal;
-	private Float ponte;
+	private BigDecimal vertical;
+	private BigDecimal horizontal;
+	private BigDecimal ponte;
 	private String codigo;
 	private String cor;
-	private Float diagonalMaior;
+	private BigDecimal diagonalMaior;
 }
