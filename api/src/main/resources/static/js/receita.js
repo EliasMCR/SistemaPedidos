@@ -198,6 +198,7 @@ document.getElementById("form-receita").addEventListener("submit", async (e) => 
 
     if (response.ok) {
         alert("Pedido criado com sucesso!");
+        location.reload();
     } else {
         alert("Erro ao criar pedido.");
     }

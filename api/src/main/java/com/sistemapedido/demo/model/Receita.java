@@ -1,5 +1,7 @@
 package com.sistemapedido.demo.model;
 
+import java.math.BigDecimal;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -17,10 +19,12 @@ public class Receita {
 	private Long id;
 	@Enumerated(EnumType.STRING)
 	private TipoReceita tipoReceita;
-	private Float esfericoOD;
-	private Float esfericoOE;
-	private Float cilindroOD;
-	private Float cilindroOE;
-	private Float adicaoOD;
-	private Float adicaoOE;
+	private BigDecimal esfericoOD;
+	private BigDecimal esfericoOE;
+	private BigDecimal cilindroOD;
+	private BigDecimal cilindroOE;
+	private BigDecimal adicaoOD;
+	private BigDecimal adicaoOE;
+	private Integer eixoOD;
+	private Integer eixoOE;
 }

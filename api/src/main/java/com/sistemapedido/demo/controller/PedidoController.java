@@ -19,6 +19,8 @@ import com.sistemapedido.demo.model.Lente;
 import com.sistemapedido.demo.model.MedidasArmacao;
 import com.sistemapedido.demo.model.Pedido;
 import com.sistemapedido.demo.model.PedidoStatus;
+import com.sistemapedido.demo.model.Receita;
+import com.sistemapedido.demo.repository.ReceitaRepository;
 import com.sistemapedido.demo.service.LenteService;
 import com.sistemapedido.demo.service.MedidasArmacaoService;
 import com.sistemapedido.demo.service.PedidoService;
@@ -35,6 +37,9 @@ public class PedidoController {
 
 	@Autowired
 	private MedidasArmacaoService medidasArmacaoService;
+	
+	@Autowired
+	private ReceitaRepository receitaRepository;
 
 	@GetMapping("/listar")
 	public ResponseEntity<List<Pedido>> listarPedidos() {
@@ -64,16 +69,30 @@ public class PedidoController {
 		medidasArmacao.setCor(pedidoFormDTO.getCorArmacao());
 		medidasArmacaoService.salvarMedidas(medidasArmacao);
 
+		// Cria a receita
+		Receita receita = new Receita();
+		receita.setAdicaoOD(pedidoFormDTO.getAdicaoOD());
+		receita.setAdicaoOE(pedidoFormDTO.getAdicaoOE());
+		receita.setCilindroOD(pedidoFormDTO.getCilindroOD());
+		receita.setCilindroOE(pedidoFormDTO.getCilindroOE());
+		receita.setEsfericoOD(pedidoFormDTO.getEsfericoOD());
+		receita.setEsfericoOE(pedidoFormDTO.getEsfericoOE());
+		receita.setEixoOD(pedidoFormDTO.getEixoOD());
+		receita.setEixoOE(pedidoFormDTO.getEixoOE());
+		receitaRepository.save(receita);
+		
 		// Cria o pedido
 		Pedido pedido = new Pedido();
 		pedido.setDataCriacao(LocalDate.now());
 		pedido.setLenteOD(lenteOD);
 		pedido.setLenteOE(lenteOE);
 		pedido.setMedidasArmacao(medidasArmacao);
+		pedido.setReceita(receita);
 		pedido.setStatus(PedidoStatus.AGUARDANDO_APROVACAO); // Defina o status inicial
 		pedido.setTotalPedido(BigDecimal.ZERO); // Atualize conforme necessário
 		pedido.setDataPrevisaoEntrega(LocalDate.now().plusDays(7)); // Exemplo de data de entrega
 		pedidoService.salvar(pedido);
+		
 
 		return ResponseEntity.ok(pedido);
 	}
